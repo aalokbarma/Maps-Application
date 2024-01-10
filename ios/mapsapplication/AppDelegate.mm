@@ -1,3 +1,4 @@
+#import <GoogleMaps/GoogleMaps.h>
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
@@ -12,6 +13,7 @@
   self.initialProps = @{};
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  [GMSServices provideAPIKey:@"AIzaSyAbD8VCubHrR8foHNEVdRJ8x71kUt5huBw"]; // add this line using the api key obtained from Google Console
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

@@ -102,42 +102,7 @@ const LoginForm = ({ navigation}: any) => {
                                 
                             </View>
                         </View>
-                        {/* <View style = {Styles.inputRow}>
-                        <FontAwesome name="user-o" size={24} color="#555" />
-                            <TextInput 
-                                style = {Styles.phoneInput}
-                                placeholder='Username'
-                                placeholderTextColor={"#323948"}
-                                value= {props.values.Username}
-                                onChangeText = {props.handleChange('Username')}
-                                onBlur={props.handleBlur('Username')}
-                            />
-                        </View> */}
                         
-                        {/* <View style={Styles.inputRow}>
-                            <Image
-                                style={Styles.lockImage}
-                                source={lock}
-                            />
-                            <View style={Styles.passwordContainer}>
-                                <TextInput
-                                    style={Styles.phoneInput}
-                                    placeholder='Password'
-                                    placeholderTextColor={"#323948"}
-                                    value={props.values.Password}
-                                    onChangeText={props.handleChange('Password')}
-                                    onBlur={props.handleBlur('Password')}
-                                    textContentType='password'
-                                    secureTextEntry={securePass}
-                                />
-                                <Pressable onPress={onLockPress}>
-                                    <Image
-                                        style={Styles.lockImage}
-                                        source={show}
-                                    />
-                                </Pressable>
-                            </View>
-                        </View> */}
                         <View style = {Styles.errorContainer}>
                             <Text style={Styles.errorMessage}> {props.touched.Password && props.errors.Password} </Text>
                         </View>
@@ -163,7 +128,6 @@ const LoginForm = ({ navigation}: any) => {
                                 title = {"Continue with Email"}
                                 primary
                                 onPressFunction = {() => props.handleSubmit()}
-                                // width = {315}
                             />
                         </View>
                         <View style = {Styles.codeButtonContainer}>
@@ -171,7 +135,6 @@ const LoginForm = ({ navigation}: any) => {
                                 title = {"Continue with Code"}
                                 primary = {false}
                                 onPressFunction = {() => onCodeClick()}
-                                // width = {315}
                             />
                         </View>
                     </View>

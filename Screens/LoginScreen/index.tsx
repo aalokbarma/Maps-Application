@@ -15,7 +15,6 @@ const LoginScreen = ({navigation}: any) => {
           style = {Styles.groupImage}
         />
         <LoginForm navigation = {navigation} />
-        {/* <LoginForm navigation = {navigation} /> */}
         <LoginMethods />
       </View>
       <Footer />

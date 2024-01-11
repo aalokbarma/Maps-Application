@@ -7,6 +7,7 @@ const Styles = StyleSheet.create({
         height: 'auto',
         padding: 25,
         backgroundColor: Colors.background,
+        marginTop: 50,
     },
     formHeader: {
         color: '#0B1F43',
@@ -101,6 +102,7 @@ const Styles = StyleSheet.create({
         fontWeight: '400',
         lineHeight: 12,
         marginTop: 2,
+        textAlign: 'right',
     },
     inputContainer: {
         backgroundColor: 'transparent',
@@ -110,23 +112,74 @@ const Styles = StyleSheet.create({
         borderColor: Colors.buttonPrimary,
         paddingLeft: 10,
         zIndex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingRight: 10,
     },
     inputRowContainer: {
 
     },
     inputField: {
-        color: Colors.black
+        color: Colors.black,
+        flex: 1,
     },
     inputLabelText: {
         marginLeft: 5,
         fontSize: 11,
-        fontWeight: '600',
+        fontWeight: '800',
         color: Colors.black,
         marginBottom: -8,
         backgroundColor: Colors.background,
         paddingHorizontal: 3,
         zIndex: 10,
         width: 147,
+    },
+    passwordInputLabelText: {
+        marginLeft: 5,
+        fontSize: 11,
+        fontWeight: '800',
+        color: Colors.black,
+        marginBottom: -8,
+        backgroundColor: Colors.background,
+        paddingHorizontal: 3,
+        zIndex: 10,
+        width: 58,
+    },
+    errorContainer: {
+        width: '100%',
+        marginTop: 10,
+    },
+    emailButtonContainer: {
+        marginTop: 15,
+        marginBottom: 10
+    },
+    codeButtonContainer: {
+
+    },
+    forgetPasswordContainer: {
+        display: 'flex',
+        paddingTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 5
+    },
+    rememberMeContainer: {
+        display: 'flex',
+        flexDirection :'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    rememberMeText: {
+        fontSize: 14,
+        color: Colors.black
+    },
+    forgetPasswordText: {
+        fontSize: 16,
+        color: Colors.buttonPrimary
+    },
+    checkBox: {
+        color: Colors.buttonPrimary
     },
 });
 

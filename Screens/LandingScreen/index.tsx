@@ -1,7 +1,7 @@
 import { View, Text, Image } from 'react-native';
 import React from 'react';
 import Styles from './styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import LoginMethods from '../../Common/LoginMethods';
 import Footer from '../../Common/Footer';
 import Button from '../../Common/Button';
@@ -13,22 +13,24 @@ const LandingScreen = ({navigation}: any) => {
     }
 
   return (
-    <View style = {Styles.landingScreenContainer}>
+    <ScrollView style = {Styles.landingScreenContainer}>
         <View style = {Styles.mainContainer}>
-        <Image
-            source={require('../../Assets/Images/group1.png')}
-            style = {Styles.groupImage}
-        />
-        <Button 
-          title = {"Signup/Login"}
-          primary = {true}
-          onPressFunction = {() => onLoginButtonPress()}
-          width = {315}
-        />
-        <LoginMethods />
+          <Image
+              source={require('../../Assets/Images/group1.png')}
+              style = {Styles.groupImage}
+          />
+          <View style = {{marginBottom: 15}}>
+            <Button 
+              title = {"Signup/Login"}
+              primary = {true}
+              onPressFunction = {() => onLoginButtonPress()}
+              width = {315}
+            />
+          </View>
+          <LoginMethods />
         </View>
       <Footer />
-    </View>
+    </ScrollView>
   )
 }
 

@@ -4,7 +4,7 @@ import Colors from "../../Assets/Colors/Colors";
 const Styles = StyleSheet.create({
     buttonContainer: {
         width: '100%',
-        padding: 20,
+        // paddingHorizontal: 20,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -20,7 +20,6 @@ const Styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 16,
-        color: Colors.white,
         fontWeight:'400',
         textAlign: 'center',
         letterSpacing: 1,

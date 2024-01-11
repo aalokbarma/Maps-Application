@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, Pressable, Alert } from 'react-native';
 import Styles from './styles';
-import lock from '../../../assets/sign-up/iconpng/lock.png';
-import show from '../../../assets/sign-up/iconpng/Group.png';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../Common/Button';
 import Colors from '../../Assets/Colors/Colors';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import CheckBox from '@react-native-community/checkbox';
 
 const reviewSchema = yup.object({
-    Username:  yup.string()
-        .required()
-        .min(3),
+    Email:  yup.string()
+        .email('Invalid email address')
+        .required('Email is required'),
     Password: yup.string()
         .required()
         .min(8)
-    // .test('is atleast 8 digits in length', "Password must be atleast of 8 digits" , (val) => {
-    //     return val?.length() >= 8
-    // })
 });
 
 interface loginFormTypes{
     navigation: {
         navigate: Function,
-        push: Function
+        push: Function,
+        replace: Function,
     }
 }
 
 const LoginForm = ({ navigation}: any) => {
     const [securePass, setSecurePass] = useState(true);
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
-    const onLockPress = () => {
+    const onEyePress = () => {
         if (securePass == true) {
             setSecurePass(false)
         } else {
@@ -41,28 +41,22 @@ const LoginForm = ({ navigation}: any) => {
     };
 
     const onSubmit = async (value: any, actions: any) => {
-        if(value.Username == "PaliPoint" && value.Password == "Test@123"){
-            Alert.alert('Success', 'Login Successful', [
-                {
-                  text: 'OK',
-                  onPress: () => navigation.push('Home'),
-                  style: 'cancel',
-                },
-                
-              ]);
-            value.Username = "";
-            value.Password = "";
+        if(value.Email == "Admin@palipoint.com" && value.Password == "Test@123"){
+            navigation.navigate('Home')
         }
         else {
-            Alert.alert('Login Failed', 'Kindly check your Username and Password');
+            Alert.alert('Login Failed', 'Kindly check your Email and Password');
         }
+    }
+
+    const onCodeClick  = () => {
+        Alert.alert("Coming Soon")
     }
 
     return (
         <View style={Styles.form} testID="LoginFormContainer">
-            <Text style={Styles.formHeader}>Login</Text>
             <Formik
-                initialValues={{Username: '', Password: '' }}
+                initialValues={{Email: '', Password: '' }}
                 validationSchema={reviewSchema}
                 onSubmit={onSubmit}
             >
@@ -73,12 +67,39 @@ const LoginForm = ({ navigation}: any) => {
                             <View style = {Styles.inputContainer}>
                                 <TextInput 
                                     style = {Styles.inputField}
-                                    placeholder= ''
+                                    placeholder= 'Joseph_desuza@ymail.com'
                                     placeholderTextColor={Colors.placeholder1}
-                                    value= {props.values.Username}
-                                    onChangeText = {props.handleChange('Username')}
-                                    onBlur={props.handleBlur('Username')}
+                                    value= {props.values.Email}
+                                    onChangeText = {props.handleChange('Email')}
+                                    onBlur={props.handleBlur('Email')}
                                 />
+                                <Fontisto name="email" size={16} color= {Colors.buttonPrimary} />
+                            </View>
+                        </View>
+                        <View style = {Styles.errorContainer}>
+                            <Text style = {Styles.errorMessage}> { props.touched.Email && props.errors.Email} </Text>
+                        </View>
+                        <View style = {Styles.inputRowContainer}>
+                            <Text style = {Styles.passwordInputLabelText}>Password</Text>
+                            <View style = {Styles.inputContainer}>
+                                <TextInput 
+                                    style = {Styles.inputField}
+                                    placeholder='Password'
+                                    placeholderTextColor={Colors.placeholder1}
+                                    value={props.values.Password}
+                                    onChangeText={props.handleChange('Password')}
+                                    onBlur={props.handleBlur('Password')}
+                                    textContentType='password'
+                                    secureTextEntry={securePass}
+                                />
+                                <Pressable onPress={() => onEyePress()}>
+                                    {
+                                        securePass ? <FontAwesome name="eye-slash" size={18} color= {Colors.buttonPrimary} />
+                                        : 
+                                        <FontAwesome name="eye" size={18} color= {Colors.buttonPrimary} />
+                                    }
+                                </Pressable>
+                                
                             </View>
                         </View>
                         {/* <View style = {Styles.inputRow}>
@@ -92,12 +113,12 @@ const LoginForm = ({ navigation}: any) => {
                                 onBlur={props.handleBlur('Username')}
                             />
                         </View> */}
-                        <Text style = {Styles.errorMessage}> { props.touched.Username && props.errors.Username} </Text>
-                        <View style={Styles.inputRow}>
-                            {/* <Image
+                        
+                        {/* <View style={Styles.inputRow}>
+                            <Image
                                 style={Styles.lockImage}
                                 source={lock}
-                            /> */}
+                            />
                             <View style={Styles.passwordContainer}>
                                 <TextInput
                                     style={Styles.phoneInput}
@@ -110,25 +131,49 @@ const LoginForm = ({ navigation}: any) => {
                                     secureTextEntry={securePass}
                                 />
                                 <Pressable onPress={onLockPress}>
-                                    {/* <Image
+                                    <Image
                                         style={Styles.lockImage}
                                         source={show}
-                                    /> */}
+                                    />
                                 </Pressable>
                             </View>
-                        </View>
-                        <Text style={Styles.errorMessage}> {props.touched.Password && props.errors.Password} </Text>
-                        <Button
-                            title = {"Continue with Email"}
-                            primary
-                            onPressFunction = {() => props.handleSubmit()}
-                            width = {350}
-                        />
-                        {/* <View style={Styles.signUpButtonContainer}>
-                            <Pressable style={Styles.signUpButton} onPress={() => props.handleSubmit()} >
-                                <Text style={Styles.signUpText}>Login</Text>
-                            </Pressable>
                         </View> */}
+                        <View style = {Styles.errorContainer}>
+                            <Text style={Styles.errorMessage}> {props.touched.Password && props.errors.Password} </Text>
+                        </View>
+
+                        <View style = {Styles.forgetPasswordContainer}>
+                            <View style = {Styles.rememberMeContainer}>
+                                <CheckBox
+                                    disabled={false}
+                                    value={toggleCheckBox}
+                                    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                                    style = {Styles.checkBox}
+                                />
+                                <Text style = {Styles.rememberMeText}>Remember Me</Text>
+                            </View>
+                            <TouchableOpacity onPress={() => onCodeClick()}>
+                                <Text style = {Styles.forgetPasswordText}>Forgot Password?</Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View style = {Styles.emailButtonContainer}>
+                            <Button
+                                title = {"Continue with Email"}
+                                primary
+                                onPressFunction = {() => props.handleSubmit()}
+                                // width = {315}
+                            />
+                        </View>
+                        <View style = {Styles.codeButtonContainer}>
+                            <Button
+                                title = {"Continue with Code"}
+                                primary = {false}
+                                onPressFunction = {() => onCodeClick()}
+                                // width = {315}
+                            />
+                        </View>
                     </View>
                 )}
             </Formik>

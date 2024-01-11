@@ -14,9 +14,9 @@ const Navigation = () => {
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Landing'>
             <Stack.Group screenOptions={{headerShown : false}}>
-                <Stack.Screen name="Landing" component={LandingScreen} />
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Landing" component={LandingScreen} options={{gestureEnabled: false}} />
+                <Stack.Screen name="Login" component={LoginScreen} options={{gestureEnabled: false}} />
+                <Stack.Screen name="Home" component={HomeScreen} options={{ gestureEnabled: false, backBehavior: 'none' }} />
             </Stack.Group>
         </Stack.Navigator>
     </NavigationContainer>

@@ -10,9 +10,6 @@ const Styles = StyleSheet.create({
         paddingTop: 20,
         width:'100%',
         height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
     },
     groupImage: {
         width: Dimensions.get('window').width-10,
@@ -47,6 +44,7 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        flex: 1,
     },
 
 });

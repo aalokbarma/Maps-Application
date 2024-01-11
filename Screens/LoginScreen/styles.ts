@@ -6,10 +6,7 @@ const Styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.background,
         padding: 10,
-        paddingTop: 200,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
+        paddingTop: 100,
     },
     mainContainer: {
         display: 'flex',

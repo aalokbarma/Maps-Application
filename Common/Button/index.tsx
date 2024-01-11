@@ -6,9 +6,9 @@ import Colors from '../../Assets/Colors/Colors';
 const Button = (props: any) => {
     const {title, primary, onPressFunction} = props;
   return (
-    <View style = {[Styles.buttonContainer, {width: props.width ? props.width : "100%"}]}>
+    <View style = {[Styles.buttonContainer]}>
         <TouchableOpacity style = {[Styles.button, {backgroundColor: primary ? Colors.buttonPrimary : Colors.white, width: props.width ? props.width : "100%"}]} onPress={() => onPressFunction()}>
-            <Text style = {Styles.buttonText}>
+            <Text style = {[Styles.buttonText, {color: primary ? Colors.white : Colors.buttonPrimary}]}>
                 {title}
             </Text>
         </TouchableOpacity>

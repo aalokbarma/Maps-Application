@@ -179,7 +179,7 @@ const Styles = StyleSheet.create({
         color: Colors.buttonPrimary
     },
     checkBox: {
-        color: Colors.buttonPrimary
+        // backgroundColor: Colors.buttonPrimary
     },
 });
 

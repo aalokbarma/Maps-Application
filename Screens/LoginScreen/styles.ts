@@ -17,6 +17,9 @@ const Styles = StyleSheet.create({
     groupImage: {
         width: '100%',
         resizeMode: 'contain',
+    },
+    marginView: {
+        marginBottom: 120,
     }
 });
 

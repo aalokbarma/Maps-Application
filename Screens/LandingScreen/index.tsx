@@ -9,7 +9,7 @@ import Button from '../../Common/Button';
 const LandingScreen = ({navigation}: any) => {
 
     const onLoginButtonPress = () => {
-        navigation.navigate("Login")
+        navigation.replace("Login")
     }
 
   return (

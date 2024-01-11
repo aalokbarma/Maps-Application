@@ -42,7 +42,7 @@ const LoginForm = ({ navigation}: any) => {
 
     const onSubmit = async (value: any, actions: any) => {
         if(value.Email == "Admin@palipoint.com" && value.Password == "Test@123"){
-            navigation.navigate('Home')
+            navigation.replace('Home')
         }
         else {
             Alert.alert('Login Failed', 'Kindly check your Email and Password');

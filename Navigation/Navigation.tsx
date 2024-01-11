@@ -16,7 +16,7 @@ const Navigation = () => {
             <Stack.Group screenOptions={{headerShown : false}}>
                 <Stack.Screen name="Landing" component={LandingScreen} options={{gestureEnabled: false}} />
                 <Stack.Screen name="Login" component={LoginScreen} options={{gestureEnabled: false}} />
-                <Stack.Screen name="Home" component={HomeScreen} options={{ gestureEnabled: false, backBehavior: 'none' }} />
+                <Stack.Screen name="Home" component={HomeScreen} options={{ gestureEnabled: false }} />
             </Stack.Group>
         </Stack.Navigator>
     </NavigationContainer>

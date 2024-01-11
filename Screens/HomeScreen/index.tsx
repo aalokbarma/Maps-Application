@@ -178,18 +178,6 @@ const HomeScreen = () => {
       : null
       }
       {
-        currLocation != undefined ?  
-        <Marker
-          coordinate={currLocation}
-        >
-          <Image 
-          style = {Styles.currentLocationIcon}
-          source={{uri : "https://assets-global.website-files.com/62c5e0898dea0b799c5f2210/62e8212acc540f291431bad2_location-icon.png"}}
-        />
-        </Marker>
-      : null
-      }
-      {
         origin != undefined && destination != undefined ?
         <MapViewDirections
           origin={origin}

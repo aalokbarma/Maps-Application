@@ -16,7 +16,7 @@ const Styles = StyleSheet.create({
       currLocationSearch: {
         width: '100%',
         zIndex: 10,
-        flex: 0.4,
+        flex: 0.5,
         padding: 5,
         display: 'flex',
         alignItems: 'flex-start',
